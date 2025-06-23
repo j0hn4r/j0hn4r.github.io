@@ -1,25 +1,144 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Projects Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        body {
+            font-family: 'Space Mono', monospace;
+            background-color: #f8f8f8;
+            color: #111;
+        }
+        
+        .title-font {
+            font-family: 'Major Mono Display', monospace;
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            border: 2px solid #111;
+            box-shadow: 8px 8px 0 #111;
+        }
+        
+        .project-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 12px 12px 0 #111;
+        }
+        
+        .accent {
+            color: #FF5252;
+        }
+        
+        .accent-bg {
+            background-color: #FF5252;
+        }
+        
+        .accent-border {
+            border-color: #FF5252;
+        }
+    </style>
 </head>
-<body>
-  <div class="container">
-    <div class="jumbotron">
-      <h1>This is my little site for testing stuff</h1>
-    </div>
-    <div class="page-header">
-       <a href="https://github.com/j0hn4r/album2" target="_blank"><h1>Album</h1></a> 
-    </div>
-    
-  </div>
+<body class="min-h-screen">
+    <header class="bg-white border-b-2 border-black py-6">
+        <div class="container mx-auto px-4">
+            <h1 class="title-font text-4xl md:text-5xl text-center">
+                <span class="accent">></span> GITHUB PROJECTS <span class="accent"><</span>
+            </h1>
+            <p class="text-center mt-4 max-w-2xl mx-auto">
+                A collection of my open-source projects and contributions. Built with passion and shared with the world.
+            </p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project Card 1 -->
+            <div class="project-card bg-white p-6 rounded">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl font-bold">Project One</h3>
+                    <span class="text-xs px-2 py-1 accent-bg text-white rounded">NEW</span>
+                </div>
+                <p class="text-sm mb-4">A brief description of what this project does and why it's useful.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="text-xs px-2 py-1 bg-gray-100 rounded">JavaScript</span>
+                    <span class="text-xs px-2 py-1 bg-gray-100 rounded">React</span>
+                    <span class="text-xs px-2 py-1 bg-gray-100 rounded">Tailwind</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <a href="#" class="text-sm underline accent">View Demo</a>
+                    <a href="#" class="text-black hover:text-gray-700">
+                        <i class="fab fa-github text-lg"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Project Card 2 -->
+            <div class="project-card bg-white p-6 rounded">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl font-bold">Project Two</h3>
+                    <span class="text-xs px-2 py-1 bg-gray-100 rounded">POPULAR</span>
+                </div>
+                <p class="text-sm mb-4">Another project description highlighting its features and purpose.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="text-xs px-2 py-1 bg-gray-100 rounded">Python</span>
+                    <span class="text-xs px-2 py-1 bg-gray-100 rounded">Django</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <a href="#" class="text-sm underline accent">View Demo</a>
+                    <a href="#" class="text-black hover:text-gray-700">
+                        <i class="fab fa-github text-lg"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Project Card 3 -->
+            <div class="project-card bg-white p-6 rounded">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl font-bold">Project Three</h3>
+                    <span class="text-xs px-2 py-1 bg-gray-100 rounded">EXPERIMENTAL</span>
+                </div>
+                <p class="text-sm mb-4">A description of this experimental project and what makes it unique.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="text-xs px-2 py-1 bg-gray-100 rounded">TypeScript</span>
+                    <span class="text-xs px-2 py-1 bg-gray-100 rounded">Node.js</span>
+                    <span class="text-xs px-2 py-1 bg-gray-100 rounded">MongoDB</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <a href="#" class="text-sm underline accent">View Demo</a>
+                    <a href="#" class="text-black hover:text-gray-700">
+                        <i class="fab fa-github text-lg"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- ADD MORE PROJECT CARDS HERE -->
+            <!-- Just copy one of the above card divs and modify the content -->
+            
+        </div>
+    </main>
+
+    <footer class="bg-white border-t-2 border-black py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm mb-4 md:mb-0">© 2023 My GitHub Projects. All open-source.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-black hover:accent">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-black hover:accent">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-black hover:accent">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
