@@ -1,144 +1,273 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Projects Showcase</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creative Coding Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Space Mono', monospace;
-            background-color: #f8f8f8;
-            color: #111;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(120deg, #f7fafc 0%, #e0e7ff 100%);
+            color: #222;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            transition: background 0.5s;
         }
-        
-        .title-font {
-            font-family: 'Major Mono Display', monospace;
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            padding: 60px 20px 40px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(60, 60, 120, 0.08);
+            border-radius: 24px;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(2px);
+            margin-top: 40px;
+            transition: box-shadow 0.3s;
         }
-        
-        .project-card {
-            transition: all 0.3s ease;
-            border: 2px solid #111;
-            box-shadow: 8px 8px 0 #111;
+
+        .top-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #fde68a 60%, #fca5a5 100%);
+            border-radius: 24px;
+            box-shadow: 0 4px 24px rgba(252, 165, 165, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: box-shadow 0.3s;
         }
-        
-        .project-card:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 12px 12px 0 #111;
+
+        h1 {
+            font-size: 54px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -2px;
+            text-shadow: 0 2px 8px rgba(60,60,120,0.08);
         }
-        
-        .accent {
-            color: #FF5252;
+
+        .subtitle {
+            color: #64748b;
+            margin-bottom: 50px;
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 4px rgba(100, 116, 139, 0.08);
         }
-        
-        .accent-bg {
-            background-color: #FF5252;
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 20px;
         }
-        
-        .accent-border {
-            border-color: #FF5252;
+
+        .card {
+            background: linear-gradient(120deg, #fff 60%, #f3f4f6 100%);
+            border-radius: 22px;
+            padding: 32px 28px;
+            text-align: left;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            transition: transform 0.25s cubic-bezier(.4,2,.3,1), box-shadow 0.25s;
+            border: none;
+            box-shadow: 0 2px 16px rgba(60,60,120,0.08);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+        }
+        .card::before {
+            content: "";
+            position: absolute;
+            left: 0; top: 0; right: 0; bottom: 0;
+            border-radius: 22px;
+            pointer-events: none;
+            background: linear-gradient(120deg, rgba(236,72,153,0.08) 0%, rgba(59,130,246,0.08) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-8px) scale(1.03) rotate(-2deg);
+            box-shadow: 0 12px 32px rgba(59,130,246,0.12);
+        }
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: box-shadow 0.3s;
+        }
+
+        .pink {
+            background: linear-gradient(135deg, #ec4899 60%, #f43f5e 100%);
+        }
+        .purple {
+            background: linear-gradient(135deg, #8b5cf6 60%, #a855f7 100%);
+        }
+        .blue {
+            background: linear-gradient(135deg, #06b6d4 60%, #3b82f6 100%);
+        }
+        .orange {
+            background: linear-gradient(135deg, #f97316 60%, #fb923c 100%);
+        }
+        .green {
+            background: linear-gradient(135deg, #84cc16 60%, #22c55e 100%);
+        }
+
+        .card-content h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: -0.5px;
+        }
+        .card-content p {
+            color: #4b5563;
+            font-size: 15px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 30px;
+            color: #64748b;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 4px rgba(100, 116, 139, 0.08);
+            text-align: center;
+        }
+        footer span {
+            color: #ef4444;
+            font-size: 18px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 36px;
+            }
+            .subtitle {
+                font-size: 16px;
+            }
+            .container {
+                padding: 30px 8px 20px;
+            }
+            .card {
+                padding: 20px 12px;
+            }
+            .icon {
+                width: 44px;
+                height: 44px;
+                font-size: 20px;
+            }
         }
     </style>
 </head>
-<body class="min-h-screen">
-    <header class="bg-white border-b-2 border-black py-6">
-        <div class="container mx-auto px-4">
-            <h1 class="title-font text-4xl md:text-5xl text-center">
-                <span class="accent">></span> GITHUB PROJECTS <span class="accent"><</span>
-            </h1>
-            <p class="text-center mt-4 max-w-2xl mx-auto">
-                A collection of my open-source projects and contributions. Built with passion and shared with the world.
-            </p>
-        </div>
-    </header>
 
-    <main class="container mx-auto px-4 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Project Card 1 -->
-            <div class="project-card bg-white p-6 rounded">
-                <div class="flex justify-between items-start mb-4">
-                    <h3 class="text-xl font-bold">Project One</h3>
-                    <span class="text-xs px-2 py-1 accent-bg text-white rounded">NEW</span>
-                </div>
-                <p class="text-sm mb-4">A brief description of what this project does and why it's useful.</p>
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="text-xs px-2 py-1 bg-gray-100 rounded">JavaScript</span>
-                    <span class="text-xs px-2 py-1 bg-gray-100 rounded">React</span>
-                    <span class="text-xs px-2 py-1 bg-gray-100 rounded">Tailwind</span>
-                </div>
-                <div class="flex justify-between items-center">
-                    <a href="#" class="text-sm underline accent">View Demo</a>
-                    <a href="#" class="text-black hover:text-gray-700">
-                        <i class="fab fa-github text-lg"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Project Card 2 -->
-            <div class="project-card bg-white p-6 rounded">
-                <div class="flex justify-between items-start mb-4">
-                    <h3 class="text-xl font-bold">Project Two</h3>
-                    <span class="text-xs px-2 py-1 bg-gray-100 rounded">POPULAR</span>
-                </div>
-                <p class="text-sm mb-4">Another project description highlighting its features and purpose.</p>
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="text-xs px-2 py-1 bg-gray-100 rounded">Python</span>
-                    <span class="text-xs px-2 py-1 bg-gray-100 rounded">Django</span>
-                </div>
-                <div class="flex justify-between items-center">
-                    <a href="#" class="text-sm underline accent">View Demo</a>
-                    <a href="#" class="text-black hover:text-gray-700">
-                        <i class="fab fa-github text-lg"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Project Card 3 -->
-            <div class="project-card bg-white p-6 rounded">
-                <div class="flex justify-between items-start mb-4">
-                    <h3 class="text-xl font-bold">Project Three</h3>
-                    <span class="text-xs px-2 py-1 bg-gray-100 rounded">EXPERIMENTAL</span>
-                </div>
-                <p class="text-sm mb-4">A description of this experimental project and what makes it unique.</p>
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="text-xs px-2 py-1 bg-gray-100 rounded">TypeScript</span>
-                    <span class="text-xs px-2 py-1 bg-gray-100 rounded">Node.js</span>
-                    <span class="text-xs px-2 py-1 bg-gray-100 rounded">MongoDB</span>
-                </div>
-                <div class="flex justify-between items-center">
-                    <a href="#" class="text-sm underline accent">View Demo</a>
-                    <a href="#" class="text-black hover:text-gray-700">
-                        <i class="fab fa-github text-lg"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- ADD MORE PROJECT CARDS HERE -->
-            <!-- Just copy one of the above card divs and modify the content -->
-            
-        </div>
-    </main>
+<body>
+    <div class="container">
+        <img class="top-icon" src="head.svg" alt="icon">
+        <h1>creative coding tools</h1>
+        <div class="subtitle">make weird & wonderful things~</div>
 
-    <footer class="bg-white border-t-2 border-black py-8">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="text-sm mb-4 md:mb-0">© 2023 My GitHub Projects. All open-source.</p>
-                <div class="flex space-x-4">
-                    <a href="#" class="text-black hover:accent">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a href="#" class="text-black hover:accent">
-                        <i class="fab fa-twitter text-xl"></i>
-                    </a>
-                    <a href="#" class="text-black hover:accent">
-                        <i class="fas fa-envelope text-xl"></i>
-                    </a>
+        <div class="grid">
+            <a class="card" href="https://j0hn4r.github.io/jokey/" target="_blank">
+                <div class="icon pink">🎨</div>
+                <div class="card-content">
+                    <h3>Jokey</h3>
+                    <p>Jokes that don't make sense</p>
                 </div>
-            </div>
+            </a>
+            <a class="card" href="https://j0hn4r.github.io/jigsaw/" target="_blank">
+                <div class="icon purple">🧩</div>
+                <div class="card-content">
+                    <h3>Jigsaw</h3>
+                    <p>Combine two images in a jigsaw thing. Inspired by Alma Haser</p>
+                </div>
+            </a>
+            <a class="card" href="https://j0hn4r.github.io/love_poem_generator/" target="_blank">
+                <div class="icon blue">💌</div>
+                <div class="card-content">
+                    <h3>Love Poem Generator</h3>
+                    <p>Generate unique love poems based on the Strachey love letter algorithm</p>
+                </div>
+            </a>
+            <a class="card" href="https://j0hn4r.github.io/triangle-video/" target="_blank">
+                <div class="icon orange">🔺</div>
+                <div class="card-content">
+                    <h3>Triangle Video</h3>
+                    <p>Creative video out of triangles! That's it!</p>
+                </div>
+            </a>
+            <a class="card" href="https://j0hn4r.github.io/fmweb/" target="_blank">
+                <div class="icon green">🎶</div>
+                <div class="card-content">
+                    <h3>FMWeb</h3>
+                    <p>Frequency Modulation Dithering with colour palettes from Ditherboy</p>
+                </div>
+            </a>
+            <a class="card" href="https://j0hn4r.github.io/Lumina-layers/" target="_blank">
+                <div class="icon pink">🌈</div>
+                <div class="card-content">
+                    <h3>Lumina Layers</h3>
+                    <p>Make art with layers of images and blending</p>
+                </div>
+            </a>
+            <a class="card" href="https://j0hn4r.github.io/displacer/" target="_blank">
+                <div class="icon purple">🌀</div>
+                <div class="card-content">
+                    <h3>Displacer</h3>
+                    <p>Displacement mapping fun</p>
+                </div>
+            </a>
+            <a class="card" href="https://j0hn4r.github.io/Glitch_contour/" target="_blank">
+                <div class="icon blue">⚡</div>
+                <div class="card-content">
+                    <h3>Glitch Contour</h3>
+                    <p>Glitchy contour art maker</p>
+                </div>
+            </a>
         </div>
+
+    </div>
+
+    <footer>
+        <p>made with <span>❤</span> & caffeine</p>
+        <p style="margin-top: 12px; font-size: 14px;"><a href="https://github.com/j0hn4r" target="_blank" style="color: #3b82f6; text-decoration: none; transition: color 0.2s;">all source code available on github</a></p>
     </footer>
+
+    <script>
+        function handleClick(tool) {
+            alert(tool + ' clicked!');
+        }
+    </script>
+
 </body>
+
 </html>
